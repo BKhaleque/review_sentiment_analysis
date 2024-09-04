@@ -31,7 +31,7 @@ def get_sentence_vector(sentence, model):
 @app.route('/', methods=['POST'])
 def predict():
     review_text = request.form.get('review_text')
-    pickle_w2v = open('w2v.sav', 'rb')
+    pickle_w2v = open('words.sav', 'rb')
     tokens = preprocess_text(review_text)
     vectors = [get_sentence_vector(tokens, pickle.load(pickle_w2v))]
     pickle_model = open('nbmodel.sav', 'rb')
