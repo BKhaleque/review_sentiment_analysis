@@ -34,7 +34,7 @@ def predict():
     pickle_w2v = open('w2v.sav', 'rb')
     tokens = preprocess_text(review_text)
     vectors = [get_sentence_vector(tokens, pickle.load(pickle_w2v))]
-    pickle_model = open('lrmodel.sav', 'rb')
+    pickle_model = open('nbmodel.sav', 'rb')
     model = pickle.load(pickle_model)
     prediction = model.predict(vectors)
     if prediction[0] == -1:
